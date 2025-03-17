@@ -40,11 +40,14 @@
                <option value="to">Toledo</option>
             </select>
         </label>
+        <label for="dir">Dirección</label>
+        <input type="text" id="dir">
             <input type="submit" value="Enviar">
         </form>
     <script>
         document.getElementById('pais').addEventListener('change',muestraProvincia)
         document.getElementById('producto').addEventListener('change',muestraColor);
+        document.getElementById('dir').addEventListener('blur',pasAMayu);
         function muestraColor(){
             let producto=document.getElementById('producto').value;
             if(producto=='mov'){
@@ -71,6 +74,13 @@
                     return false
                 }
                 return true
+        }
+        function pasAMayu(){
+           
+           
+     document.getElementById('dir').value = document.getElementById('dir').value.toUpperCase();
+
+            
         }
 
     </script>
