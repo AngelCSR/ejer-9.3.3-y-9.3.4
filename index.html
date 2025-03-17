@@ -22,10 +22,10 @@
        <input type="color" name="color" id="color" disabled>
 
        <h1>Solicitud de prestamos</h1>
-       <form action="registro.php" >
+       <form action="registro.php" onsubmit="return validaFormulario()">
         <label for="pais">País</label>
         <select onchange="" name="pais" id="pais">
-            <option value="" selected>Elija una opción</option>
+            <option value="eu" selected>Elija una opción</option>
             <option value="es" >España</option>
             <option value="fe">Fuera de España</option>
            
@@ -33,7 +33,7 @@
 
           <label id="label-provincia">Provincia
            <select onchange="" name="provincia" id="provincia">
-               <option value="" selected>Elija una opción</option>
+               <option value="ds" selected>Elija una opción</option>
                <option value="cr" >Ciudad Real</option>
                <option value="cu">Cuenca</option>
                <option value="al">Albacete</option>
@@ -59,6 +59,17 @@
             if (document.querySelector("#pais").value=="es"){
             document.querySelector("#label-provincia").style.visibility="visible";
         } else {document.querySelector("#label-provincia").style.visibility="hiden";}
+        }
+        function validaFormulario(){
+            if(document.querySelector('#pais').value=="eu"){
+                alert("Debe elegir un Pais")
+                
+                return false
+            }
+            if (document.querySelector('#provincia').value=="ds"){
+                    alert("Debe elegir una provincia")
+                    return false
+                }
         }
 
     </script>
