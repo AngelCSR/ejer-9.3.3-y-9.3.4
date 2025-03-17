@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <style>
+        #label-provincia{
+            visibility: hidden;
+        }
+     </style>
+</head>
+<body>
+    <h1>Electrónica Bosco</h1>
+       <label for="">Elija producto</label>
+       <select name="producto" id="producto">
+        <option value="" selected>Elija una</option>
+        <option value="mov">Móvil</option>
+        <option value="tab">Tablet</option>
+       </select>
+       <label for="color">Color</label>
+       <input type="color" name="color" id="color" disabled>
+
+       <h1>Solicitud de prestamos</h1>
+       <form action="registro.php" >
+        <label for="pais">País</label>
+        <select onchange="" name="pais" id="pais">
+            <option value="" selected>Elija una opción</option>
+            <option value="es" >España</option>
+            <option value="fe">Fuera de España</option>
+           
+         </select>
+
+          <label id="label-provincia">Provincia
+           <select onchange="" name="provincia" id="provincia">
+               <option value="" selected>Elija una opción</option>
+               <option value="cr" >Ciudad Real</option>
+               <option value="cu">Cuenca</option>
+               <option value="al">Albacete</option>
+               <option value="to">Toledo</option>
+            </select>
+        </label>
+            <input type="submit" value="Enviar">
+        </form>
+    <script>
+        document.getElementById('pais').addEventListener('change',muestraProvincia)
+        document.getElementById('producto').addEventListener('change',muestraColor);
+        function muestraColor(){
+            let producto=document.getElementById('producto').value;
+            if(producto=='mov'){
+                document.getElementById('color').removeAttribute('disabled');
+
+            } else {
+                document.getElementById('color').setAttribute('disabled','disabled');
+
+            }
+        }
+        function muestraProvincia(){
+            if (document.querySelector("#pais").value=="es"){
+            document.querySelector("#label-provincia").style.visibility="visible";
+        } else {document.querySelector("#label-provincia").style.visibility="hiden";}
+        }
+
+    </script>
+   
+</body>
+</html>
